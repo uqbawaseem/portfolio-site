@@ -27,7 +27,7 @@ include('config.php');
 		
 		<section class="jobs">
 			<?php
-				$query = "SELECT job.job_id, job.title, job.description, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.company_id ORDER BY `title`";
+				$query = "SELECT job.job_id, job.title, job.job_type, job.description, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.company_id ORDER BY `title`";
 				$result = mysqli_query($connection,$query);
 				while($res = mysqli_fetch_array($result)) {  
 				$job_id=$res['job_id'];
@@ -84,7 +84,7 @@ include('config.php');
 							<div class="col-md-8 col-sm-8">
 								<div class="company-content">
 									<h3> <?php echo $res['title'];?>
-									<span class="full-time">Freelance</span>	
+									<span class="full-time"><?php echo $res['job_type'];?></span>	
 								</h3>
 									<p>
 										<span class="company-name">
