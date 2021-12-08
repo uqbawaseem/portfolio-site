@@ -26,13 +26,7 @@ include('config.php');
 		</section>
 		
 		<section class="jobs">
-			<?php
-				$query = "SELECT job.job_id, job.title, job.job_type, job.description, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.company_id ORDER BY `title`";
-				$result = mysqli_query($connection,$query);
-				while($res = mysqli_fetch_array($result)) {  
-				$job_id=$res['job_id'];
 			
-			?>
 				<div class="container">
 				<div class="row heading">
 					<h2>Search Your Job</h2>
@@ -72,7 +66,17 @@ include('config.php');
 				</div>
 				
 				<div class="companies">
-					
+					<?php
+					$query = "SELECT job.job_id, job.title, job.job_type, job.description, job.salary, job.location,
+					 job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image 
+					FROM `job`,`company` 
+					WHERE job.company_id = company.company_id 
+					ORDER BY `title`";
+					$result = mysqli_query($connection,$query);
+					while($res = mysqli_fetch_array($result)) {  
+					$job_id=$res['job_id'];
+				
+				   ?>
 					
 					<div class="company-list">
 						<div class="row">
@@ -87,14 +91,11 @@ include('config.php');
 									<span class="full-time"><?php echo $res['job_type'];?></span>	
 								</h3>
 									<p>
-										<span class="company-name">
+										<span class="company-name" style="font-size: 24px;">
 										<i class="fa fa-briefcase">
-										 <?php
-										 $query=mysqli_query($connection,"SELECT name FROM company ORDER BY name ASC") or die(mysqli_error($connection));
-                    					 while($c=mysqli_fetch_array($query)){?>
-                    					
-										</i><?php echo $c['name'];?></span>
-										 <?php }?>
+										
+										</i><?php echo $res['name'];?></span>
+										 
 										<span class="company-location">
 											<i class="fa fa-map-marker">
 
@@ -108,12 +109,12 @@ include('config.php');
 									    <span class="package">
 										   <i class="fa fa-date">
 
-										   </i>ISSUE DATE: <?php echo $res['issue_date'];?></span>
+										   </i><b>ISSUE DATE:</b> <?php echo $res['issue_date'];?></span>
 
 										<span class="package">
 										   <i class="fa fa-date">
 
-										   </i>LAST DATE: <?php echo $res['last_date'];?></span>
+										   </i><b>LAST DATE:</b> <?php echo $res['last_date'];?></span>
 									</p>
 								</div>
 							</div>
@@ -122,12 +123,13 @@ include('config.php');
 							</div>
 						</div>
 					</div>
+					<?php }?>
 				</div>
 				<div class="row">
 					<input type="button" class="btn brows-btn" value="Brows All Jobs" />
 				</div>
 			</div>
-			<?php }?>
+			
 
 		</section>
 

@@ -8,6 +8,8 @@
 						<li><a href="browse-job.php">Microsoft</a></li>
 						<li><a href="browse-job.php">Aglie soft</a></li>
                         <li><a href="browse-job.php">UET</a></li>
+						<br>
+						<li><font size=5px"><a href="adminLogin.php">Admin</a></font></li>
 
 					</ul>
 				</div>

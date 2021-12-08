@@ -1,3 +1,6 @@
+<?php 
+include('config.php');
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 <?php include('_head.php');?>
@@ -6,7 +9,7 @@
     <body>
 	
 		<!-- Navigation Start  -->
-		<?php include_('_navbar.php');?>
+		<?php include('_navbar.php');?>
 
 		<!-- Navigation End  -->
 	
@@ -27,85 +30,41 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
 			</div>
 			<div class="companies">
-					<div class="company-list">
-						<div class="row">
-							<div class="col-md-2 col-sm-2">
-								<div class="company-logo">
-									<img src="img/google.png" class="img-responsive" alt="" />
-								</div>
-							</div>
-							<div class="col-md-10 col-sm-10">
-								<div class="company-content">
-									<h3>IOS Developer<span class="full-time">Full Time</span></h3>
-									<p><span class="company-name"><i class="fa fa-briefcase"></i>Google</span><span class="company-location"><i class="fa fa-map-marker"></i> 07th Avenue, New York, NY, United States</span><span class="package"><i class="fa fa-money"></i>$22,000-$50,000</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
+			        <?php
+					$query = "SELECT *
+					FROM `company` 
 					
-					<div class="company-list">
-						<div class="row">
-							<div class="col-md-2 col-sm-2">
-								<div class="company-logo">
-									<img src="img/microsoft.png" class="img-responsive" alt="" />
-								</div>
-							</div>
-							<div class="col-md-10 col-sm-10">
-								<div class="company-content">
-									<h3>Back-End developer<span class="part-time">Part Time</span></h3>
-									<p><span class="company-name"><i class="fa fa-briefcase"></i>Microsoft</span><span class="company-location"><i class="fa fa-map-marker"></i> 7th Avenue, New York, NY, United States</span><span class="package"><i class="fa fa-money"></i>$20,000-$52,000</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
+					ORDER BY `name`";
+					$result = mysqli_query($connection,$query);
+					while($res = mysqli_fetch_array($result)) {  
 					
+				
+				    ?>
 					<div class="company-list">
 						<div class="row">
 							<div class="col-md-2 col-sm-2">
 								<div class="company-logo">
-									<img src="img/apple.png" class="img-responsive" alt="" />
+									<img src="img/<?php echo $res['image'];?>" class="img-responsive" alt="" />
 								</div>
 							</div>
 							<div class="col-md-10 col-sm-10">
 								<div class="company-content">
-									<h3>UI/UX Designer<span class="freelance">Freelance</span></h3>
-									<p><span class="company-name"><i class="fa fa-briefcase"></i>Apple</span><span class="company-location"><i class="fa fa-map-marker"></i> 7th Avenue, New York, NY, United States</span><span class="package"><i class="fa fa-money"></i>$22,000-$50,000</span></p>
+									
+									<p><span class="company-name" style="font-size: 24px;">
+										<i class="fa fa-briefcase">
+
+										</i><?php echo $res['name'];?></span>
+										<span class="company-location">
+											<i class="fa fa-map-marker">
+
+											</i><?php echo $res['address'];?></span>
+											
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<div class="company-list">
-						<div class="row">
-							<div class="col-md-2 col-sm-2">
-								<div class="company-logo">
-									<img src="img/wipro.png" class="img-responsive" alt="" />
-								</div>
-							</div>
-							<div class="col-md-10 col-sm-10">
-								<div class="company-content">
-									<h3>IOS developer<span class="internship">Intership</span></h3>
-									<p><span class="company-name"><i class="fa fa-briefcase"></i>Wipro</span><span class="company-location"><i class="fa fa-map-marker"></i> 8th Avenue, New York, NY, United States</span><span class="package"><i class="fa fa-money"></i>$24,000-$52,000</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="company-list">
-						<div class="row">
-							<div class="col-md-2 col-sm-2">
-								<div class="company-logo">
-									<img src="img/twitter.png" class="img-responsive" alt="" />
-								</div>
-							</div>
-							<div class="col-md-10 col-sm-10">
-								<div class="company-content">
-									<h3>Marketing Holder<span class="full-time">Full Time</span></h3>
-									<p><span class="company-name"><i class="fa fa-briefcase"></i>Twitter</span><span class="company-location"><i class="fa fa-map-marker"></i> 4th Avenue, New York, NY, United States</span><span class="package"><i class="fa fa-money"></i>$24,000-$48,000</span></p>
-								</div>
-							</div>
-						</div>
-					</div>
+					<?php }?>
 				</div>
 			<div class="row">
 				<input type="button" class="btn brows-btn" value="Brows All Jobs" />

@@ -93,18 +93,19 @@
 		</section>
 		
 		<section class="jobs">
-			<?php
-				$query = "SELECT job.job_id, job.title, job.description, job.job_type, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.company_id and salary>2000;";
-				$result = mysqli_query($connection,$query);
-				while($res = mysqli_fetch_array($result)) {  
-				$job_id=$res['job_id'];
 			
-			?>
 				<div class="container">
 				<div class="row heading">
 					<h2>Find Popular Jobs</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
 				</div>
+					<?php
+					$query = "SELECT job.job_id, job.title, job.description, job.job_type, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.company_id and salary>=150000;";
+					$result = mysqli_query($connection,$query);
+					while($res = mysqli_fetch_array($result)) {  
+					$job_id=$res['job_id'];
+				
+					?>
 				<div class="companies">
 					<div class="company-list">
 						<div class="row">
@@ -148,9 +149,8 @@
 							</div>
 						</div>
 					</div>
+					<?php }?>	
 			</div>
-			<?php }?>
-
 		</section>
 
 		
