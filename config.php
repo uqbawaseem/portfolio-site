@@ -10,7 +10,7 @@
   if(!$connection){
       die("CONNENCTION FAILED:". mysql_error());
   }
-  echo "CONNECTED SUCCESSFULLY";
+  echo "";
 ?>
 
 

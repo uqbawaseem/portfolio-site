@@ -49,5 +49,8 @@ $(document).ready(function() {
             minLength: 1
         }
     });
+    
+        $('#i').DataTable();
+      
 
 });
