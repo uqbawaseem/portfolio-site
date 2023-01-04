@@ -1,5 +1,5 @@
 <?php
-    $Server = 'localhost:3308';
+    $Server = 'localhost:3306';
     $UserName = 'root';
     $Password = '';
     $DatabaseName = 'jobPortal';

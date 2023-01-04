@@ -22,10 +22,10 @@ include('config.php');
         <div class="container" style="margin-top:5em">
             <div class="row p-4">
 				<div class="col-md-4 col-sm-6 ">
-					<h4>Featured Job</h4>
+					<h4>Featured Portfolio</h4>
 					<ul>
                     <img src="img/client-1.jpg" alt="Avatar" style="width:200px;   border-radius: 50%; ">
-						<li><a href="#">Browse Jobs</a></li>
+						<li><a href="#">Browse Portfolio</a></li>
 						<li><a href="#">Microsoft</a></li>
 						<li><a href="#">Aglie soft</a></li>
 						<li><a href="#">UET</a></li>
@@ -35,15 +35,15 @@ include('config.php');
 				</div>
 				
 				<div class="col-md-4 col-sm-6">
-					<h4>Latest Job</h4>
+					<h4>Latest Portfolio</h4>
 					<ul>
                     <img src="img/client-2.jpg" alt="Avatar" style="width:200px;   border-radius: 50%; ">
-						<li><a href="#">Browse Jobs</a></li>
+						<li><a href="#">Browse Portfolio</a></li>
 						<li><a href="#">Access Database</a></li>
 						<li><a href="#">Report a Problem</a></li>
 						<li><a href="#">Mobile Site</a></li>
 						<li><a href="#">Web Site</a></li>
-                        <li><a href="#">Jobs by Skill</a></li>
+                        <li><a href="#">Portfolio by Skill</a></li>
 					</ul>
 				</div>
 				
@@ -54,9 +54,9 @@ include('config.php');
                     <img src="img/client-3.jpg" alt="Avatar" style="width:200px;   border-radius: 50%; ">
 					<li>Al-Khuwarizmi Institute of Computer Science(KICS)<br>
 					Lahore Pakistan</li>
-					<li>Email: ranateams@gmail.com</li>
+					<li>Email: Portfolio_site@gmail.com</li>
 					<li>Call: 0300 00 00 001</li>
-					<li>Skype: ranateams@skype</li>
+					<li>Skype: Portfolio_site@skype</li>
 					
 					</ul>
 					</address>

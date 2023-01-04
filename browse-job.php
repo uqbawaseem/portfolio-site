@@ -19,7 +19,7 @@
          <div class="container">
             <div class="caption">
                <h2>Get your jobs</h2>
-               <p>Get your Popular jobs <span>202 New job</span></p>
+               <p>Get your Popular Portfolio <span>202 New job</span></p>
             </div>
          </div>
       </section>
@@ -61,7 +61,7 @@
                   $query = "SELECT job.job_id, job.title, job.job_type, job.description, job.salary, job.location,
                    job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image 
                   FROM `job`,`company` 
-                  WHERE job.company_id = company.company_id 
+                  WHERE job.company_id = company.id 
                   ORDER BY `title`";
                   $result = mysqli_query($connection,$query);
                   while($res = mysqli_fetch_array($result)) {  

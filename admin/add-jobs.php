@@ -68,8 +68,7 @@ include('_sidebar.php');
                     }
                     else
                         {
-                            $query = "INSERT INTO `job`(`title`, `job_type`, `description`, `salary`, `location`, `vacancy`, `category_name`, `company_name`, `issue_date`, `last_date`)
-                             VALUES ('$title','$job_type','$description','$salary','$location','$vacancy','$category_name','$company_name','$issue_date','$last_date')";
+                            $query = "INSERT INTO `portfolio`(`id`, `name`, `image`, `designation`, `company_name`, `experience_data`, `education`, `certification`) VALUES ('$name', '$image', '$designation', '$company_name', '$experience_data', '$education', '$certification')";
                             $result  = mysqli_query($connection, $query) or die ("ERROR");
                             mysqli_close($connection);
 

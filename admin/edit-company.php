@@ -20,17 +20,16 @@
                include("../config.php");
                if(isset($_POST['update'])) {
                    //$id = isset($_POST['company_id']) ? strip_tags($_POST['company_id']): ' ';
-                   $id = mysqli_real_escape_string($connection, $_POST['company_id']);
+                   $id = mysqli_real_escape_string($connection, $_POST['id']);
                    $name = mysqli_real_escape_string($connection, $_POST['name']);
                    $email = mysqli_real_escape_string($connection, $_POST['email']);
                    $password = mysqli_real_escape_string($connection, $_POST['password']);
                    $contact = mysqli_real_escape_string($connection, $_POST['contact']);
-                   $website = mysqli_real_escape_string($connection, $_POST['website']);
                    $address = mysqli_real_escape_string($connection, $_POST['address']);
                    $image = $_FILES["tasweer"]["name"];
                    $path="../images/".$image;
                    move_uploaded_file($_FILES["tasweer"]["name"],$path);
-                   if( empty($name) || empty($email) || empty($password) || empty($contact) || empty($website)){
+                   if( empty($name) || empty($email) || empty($password) || empty($contact)){
                        if( empty($name) ){
                            echo "<font color= 'red'>Name field is empty. </font>";
                        }
@@ -43,9 +42,7 @@
                        if( empty($contact) ){
                            echo "<font color= 'red'>Contact field is empty. </font>";
                        }
-                       if( empty($website) ){
-                           echo "<font color= 'red'>Website field is empty. </font>";
-                       }
+                       
                        if( empty($address) ){
                            echo "<font color= 'red'>Address field is empty. </font>";
                        }
@@ -56,7 +53,7 @@
                    }
                    else
                    {
-                       $result  = mysqli_query($connection, "UPDATE `company` SET `name`='$name',`email`='$email',`password`='$password',`address`='$address',`contact`='$contact',`website`='$website',`image`='$image' WHERE `company_id`= $id");
+                       $result  = mysqli_query($connection, "UPDATE `company` SET `name`='$name',`email`='$email',`password`='$password',`address`='$address',`contact`='$contact',`image`='$image' WHERE `id`= $id");
                        if ($result) {?>
             <script>window.location.href=('all-companies.php');</script>
             <?php }
@@ -68,17 +65,16 @@
                //getting id from url
                // $id = $_GET['id'];
                $id=isset($_GET['id']) ? $_GET['id'] : die("");
-               $result = mysqli_query($connection, "SELECT * FROM `company` WHERE company_id =$id");
+               $result = mysqli_query($connection, "SELECT * FROM `company` WHERE id =$id");
                
                while($p = mysqli_fetch_array($result))
                {
-                   $id = $p['company_id'];
+                   $id = $p['id'];
                    $name = $p['name'];
                    $email = $p['email'];
                    $password = $p['password'];
                    $address = $p['address'];                
                    $contact = $p['contact'];
-                   $website = $p['website'];                
                    $image = $p['image'];
                }
                ?>
@@ -87,7 +83,7 @@
                <div class="form-group">
                   <label for="name">Name</label>
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $name?>" name="name">
-                  <input type="hidden" name= "company_id" value="<?php echo $id;?>">
+                  <input type="hidden" name= "id" value="<?php echo $id;?>">
                </div>
                <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
@@ -104,10 +100,6 @@
                <div class="form-group">
                   <label for="contact">Contact</label>
                   <input type="text" class="form-control" id="contact" value="<?php echo $contact?>" name="contact">
-               </div>
-               <div class="form-group">
-                  <label for="contact">Website</label>
-                  <input type="text" class="form-control" id="website" value="<?php echo $website?>" name="website">
                </div>
                <div class="form-group">
                   <label for="contact">Image</label>

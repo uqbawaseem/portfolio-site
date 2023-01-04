@@ -39,25 +39,23 @@ include('_navbar.php');
                             <th scope="col">PASSOWRD</th>
                             <th scope="col">ADDRESS</th>
                             <th scope="col">CONTACT</th>
-                            <th scope="col">WEBSITE</th>
                             <th scope="col">IMAGE</th>
                             <th scope="col">ACTIONS</th>
                             </tr>
                         </thead>
                         <tbody>
                         <?php 
-                         $result = mysqli_query($connection, "SELECT * FROM company ORDER BY `company_id` DESC");
+                         $result = mysqli_query($connection, "SELECT * FROM company ORDER BY `id` DESC");
                             while($p = mysqli_fetch_array($result)){
-                                echo "<tr><td>".$p['company_id']."</td>";
+                                echo "<tr><td>".$p['id']."</td>";
                                 echo "<td>".$p['name']."</td>";
                                 echo "<td>".$p['email']."</td>";
                                 echo "<td>".$p['password']."</td>";
                                 echo "<td>".$p['address']."</td>";
                                 echo "<td>".$p['contact']."</td>";
-                                echo "<td>".$p['website']."</td>";
                                 echo "<td>".$p['image']."</td>";
                                 echo "<td><img style=\" width:100px; height:80px;\" src=../img/".$p['image']."></td>";
-                                echo "<td><a href=\"edit-company.php?id=$p[company_id]\" class= \"btn btn-secondary\"><i class=\"fa fa-edit\"></i></a> <br><br> <a href=\"company_delete.php?id=$p[company_id]\"  class= \"btn btn-danger\" onClick=\"return confirm('Are you sure you want to delete?')\"><i class=\"fa fa-trash\" style=\"color:red;\"></i></a></td>";		         
+                                echo "<td><a href=\"edit-company.php?id=$p[id]\" class= \"btn btn-secondary\"><i class=\"fa fa-edit\"></i></a> <br><br> <a href=\"company_delete.php?id=$p[id]\"  class= \"btn btn-danger\" onClick=\"return confirm('Are you sure you want to delete?')\"><i class=\"fa fa-trash\" style=\"color:red;\"></i></a></td>";		         
                              }
                             ?>
                         </tbody>

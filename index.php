@@ -1,5 +1,5 @@
 <?php 
-   session_start();
+   // session_start();
    include('config.php');?> 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -13,34 +13,6 @@
          <div class="container">
             <div class="caption">
                <h2>Build Your Career</h2>
-               <form action="searchedJobs.php" method="POST">
-                  <fieldset>
-                     <div class="col-md-5 col-sm-4 no-pad">
-                        <select class="selectpicker border-right">
-                           <option>Job Title</option>
-                           <?php
-                              $result = mysqli_query($connection, "SELECT * FROM job");
-                              while($j = mysqli_fetch_array($result)){
-                              ?>
-                           <?php echo"<option value='{$j['title']}' name='title'>{$j['title']}</option>";?>								  <?php }?>
-                        </select>
-                     </div>
-                     <div class="col-md-5 col-sm-3 no-pad">
-                        <select class="selectpicker border-right">
-                           <option>Job Type</option>
-                           <?php
-                              $result = mysqli_query($connection, "SELECT * FROM job");
-                              while($j = mysqli_fetch_array($result)){
-                              ?>
-                           <?php echo"<option name='type' value='{$j['job_type']}'>{$j['job_type']}</option>";?>
-                           <?php }?>
-                        </select>
-                     </div>
-                     <div class="col-md-2 col-sm-2 no-pad">
-                        <input type="submit" class="btn seub-btn" value="search" name="submit" />
-                     </div>
-                  </fieldset>
-               </form>
             </div>
          </div>
       </section>
@@ -58,7 +30,7 @@
                         }
                         ?>
                   </h3>
-                  <p>Jobs Posted</p>
+                  <p>Portfolio Posted</p>
                </div>
             </div>
             <div class="col-md-4 col-sm-3">
@@ -96,11 +68,11 @@
       <section class="jobs">
          <div class="container">
          <div class="row heading">
-            <h2>Find Popular Jobs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+            <h2>Find Popular Portfolio</h2>
+            <p>Your introduction should be a brief summary of your work, not a detailed explanation of everything you've accomplish</p>
          </div>
          <?php
-            $query = "SELECT job.job_id, job.title, job.description, job.job_type, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.company_id and salary>=150000;";
+            $query = "SELECT job.job_id, job.title, job.description, job.job_type, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.id and salary>=150000;";
             $result = mysqli_query($connection,$query);
             while($res = mysqli_fetch_array($result)) {  
             $job_id=$res['job_id'];

@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="caption">
 				<h2>Get your jobs</h2>
-				<p>Get your Popular jobs <span>202 New job</span></p>
+				<p>Get your Popular Portfolio <span>202 New job</span></p>
 			</div>
 		</div>
 	</section>
@@ -35,7 +35,6 @@
 									<p>Now Hiring(102)</p>
 									<ul class="information">
 										<li><span>Address:</span>Menlo Park, CA</li>
-										<li><span>Website:</span>Google.com</li>
 										<li><span>Employee:</span>50,000 - 70,000 employer</li>
 										<li><span>Mail:</span>info@google.com</li>
 										<li><span>From:</span>1998</li>

@@ -3,18 +3,16 @@
    ?>
 <?php
    if (isset($_POST['submit'])){
-   $company = $_POST['company_id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $address = $_POST['address'];
     $contact = $_POST['contact'];
-    $website = $_POST['website'];
     $image = $_FILES["image"]["name"];
            $path="../images/".$image;
             move_uploaded_file($_FILES["image"]["name"],$path);
    
-    if( empty($name) || empty($email) || empty($password) || empty($contact) || empty($website) || empty($address)){
+    if( empty($name) || empty($email) || empty($password) || empty($contact) || empty($address)){
        if( empty($name) ){
            echo "<font color= 'red'>Name field is empty. </font>";
        }
@@ -30,15 +28,13 @@
        if( empty($contact) ){
            echo "<font color= 'red'>Contact field is empty. </font>";
        }
-       if( empty($website) ){
-           echo "<font color= 'red'>Website field is empty. </font>";
-       }
+       
       
        
    }
    else
        {
-           $query = "INSERT INTO `company`(`name`, `email`, `password`, `address`, `contact`, `website`, `image`) VALUES ('$name','$email','$password','$address','$contact','$website','$image')";
+           $query = "INSERT INTO `company`(`name`, `email`, `password`, `address`, `contact`, `image`) VALUES ('$name','$email','$password','$address','$contact','$image')";
            $result  = mysqli_query($connection, $query);
            echo "<font color='red'>company added seccessfully.</font>";
            header("refresh:2;url=companyLogin.php");
@@ -70,7 +66,6 @@
                   <input type="password"name="password" class="form-control input-lg" placeholder="Password">
                   <input type="address"name="address" class="form-control input-lg" placeholder="address">
                   <input type="text"name="contact" class="form-control input-lg" placeholder="contact">
-                  <input type="text"name="website" class="form-control input-lg" placeholder="website">
                   <input type="file" name="image">
                   <button type="submit" name="submit" class="btn btn-primary">Register Now</button>
                   <p>Already have an account? <a href="companyLogin.php">Login</a></p>

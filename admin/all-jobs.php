@@ -39,7 +39,7 @@ include('_sidebar.php');
                      <?php 
                      $query="SELECT job.job_id,job.title,job.job_type,job.description,job.salary,job.location,
                      job.vacancy,job.category_id,job.company_id,job.issue_date,job.last_date, 
-                     company.company_id FROM job,company,category WHERE job.company_id=company.company_id AND job.category_id=category.category_id";
+                     company.id FROM job,company,category WHERE job.company_id=company.id AND job.category_id=category.category_id";
                      $result=mysqli_query($connection,$query) or die(mysqli_error($connection));
                            while($Job = mysqli_fetch_array($result)){
                               echo "<tr><td>".$Job['job_id']."</td>";

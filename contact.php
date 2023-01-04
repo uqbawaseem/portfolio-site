@@ -2,7 +2,6 @@
 session_start();
 include('config.php');
 if (isset($_POST['submit'])){
-$contact = $_POST['contact_id'];
  $name = $_POST['name'];
  $email = $_POST['email'];
  $message = $_POST['message'];
@@ -10,14 +9,10 @@ $contact = $_POST['contact_id'];
 
 
 
-    $sql="INSERT INTO `contact`( name, email, message) VALUES ('$name','$email','$message')";
+    $sql="INSERT INTO `contact`(name, email, message) VALUES ('$name','$email','$message')";
     $result=mysqli_query($connection, $sql) or die ("ERROR");
-	header("Location: http://localhost/jober/contact.php");
+	header("Location: http://localhost/jobportal/contact.php");
 	mysqli_close($connection);
-	// session_start();
-	// if (!isset($_SESSION['username'])){
-	// header("location:{$hostname}/jober/login.php");
-	// }
 	}
 ?>
 

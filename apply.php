@@ -177,7 +177,7 @@ session_start();
             </fieldset>
             <input type="DATE" name="date" id="datePicker"  class="form-control input-lg" placeholder="Date">
             <p style="text-align: justify color:gray">By pressing apply: 1) you agree to our Terms, Cookie & Privacy Policies; 2) 
-               you consent to your application being transmitted to the Company (Jober Desk does not guarantee receipt), & processed & analyzed in accordance with its & Jober Desk's terms & privacy policies; & 3) you acknowledge that when you apply to jobs outside your country
+               you consent to your application being transmitted to the Company (Portfolio Site does not guarantee receipt), & processed & analyzed in accordance with its & Portfolio Site's terms & privacy policies; & 3) you acknowledge that when you apply to jobs outside your country
                it may involve you sending your personal data to countries with lower levels of data protection.
             </p>
             <div class="form-group">

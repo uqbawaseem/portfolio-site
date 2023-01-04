@@ -32,7 +32,7 @@
                 $location= mysqli_real_escape_string($connection, $_POST['location']);
                 $vacancy= mysqli_real_escape_string($connection, $_POST['vacancy']);
                 $category_id= mysqli_real_escape_string($connection, $_POST['category_id']);
-                $company_id= mysqli_real_escape_string($connection, $_POST['company_id']);
+                $id= mysqli_real_escape_string($connection, $_POST['id']);
                 $issue_date= mysqli_real_escape_string($connection, $_POST['issue_date']);
                 $last_date= mysqli_real_escape_string($connection, $_POST['last_date']);
                 

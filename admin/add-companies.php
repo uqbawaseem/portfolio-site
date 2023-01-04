@@ -24,13 +24,12 @@ include('_head.php');
                     $email = mysqli_real_escape_string($connection, $_POST['email']);
                     $password = mysqli_real_escape_string($connection, $_POST['password']);
                     $contact = mysqli_real_escape_string($connection, $_POST['contact']);
-                    $website = mysqli_real_escape_string($connection, $_POST['website']);
                     $address = mysqli_real_escape_string($connection, $_POST['address']);
                     $image = $_FILES["tasweer"]["name"];
                     $path="../images/".$image;
                     move_uploaded_file($_FILES["tasweer"]["name"],$path);
 
-                    if( empty($name) || empty($email) || empty($password) || empty($contact) || empty($website)){
+                    if( empty($name) || empty($email) || empty($password) || empty($contact)){
                         if( empty($name) ){
                             echo "<font color= 'red'>Name field is empty. </font>";
                         }
@@ -43,9 +42,7 @@ include('_head.php');
                         if( empty($contact) ){
                             echo "<font color= 'red'>Contact field is empty. </font>";
                         }
-                        if( empty($website) ){
-                            echo "<font color= 'red'>Website field is empty. </font>";
-                        }
+                        
                         if( empty($address) ){
                             echo "<font color= 'red'>Address field is empty. </font>";
                         }
@@ -54,7 +51,7 @@ include('_head.php');
                     }
                     else
                         {
-                            $query = "INSERT INTO `company`(`name`, `email`, `password`, `address`, `contact`, `website`, `image`) VALUES ('$name','$email','$password','$address','$contact','$website','$image')";
+                            $query = "INSERT INTO `company`(`name`, `email`, `password`, `address`, `contact`, `image`) VALUES ('$name','$email','$password','$address','$contact','$image')";
                             $result  = mysqli_query($connection, $query);
 
                             echo "<font color='red'>company added seccessfully.</font>";
@@ -85,10 +82,6 @@ include('_head.php');
                 <div class="form-group">
                     <label for="contact">Contact</label>
                     <input type="text" class="form-control" id="contact" placeholder="Contact" name="contact">
-                </div>
-                <div class="form-group">
-                    <label for="contact">Website</label>
-                    <input type="text" class="form-control" id="website" placeholder="Website" name="website">
                 </div>
                 <div class="form-group">
                     <label for="contact">Image</label>

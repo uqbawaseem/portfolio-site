@@ -15,7 +15,7 @@
 			<div class="container">
 				<div class="caption">
 					<h2>Get your jobs</h2>
-					<p>Get your Popular jobs <span>202 New job</span></p>
+					<p>Get your Popular Portfolio <span>202 New job</span></p>
 				</div>
 			</div>
 		</section>
