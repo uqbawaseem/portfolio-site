@@ -13,7 +13,7 @@ include('config.php');
       }
       else
       {
-        $search = "SELECT * FROM `applicant` WHERE `name`= '$name' and `password`= '$password' ";
+        $search = "SELECT * FROM `user` WHERE `name`= '$name' and `password`= '$password' ";
         $result = mysqli_query($connection, $search);
         if (mysqli_fetch_assoc($result))
         {
@@ -52,12 +52,12 @@ include('config.php');
 		<section class="login-wrapper">
 			<div class="container">
 				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
-					<form action="applicantLogin.php" method="post" enctype="multipart/form-data">
+					<form action="userLogin.php" method="post" enctype="multipart/form-data">
 						<img class="img-responsive" alt="logo" src="img/logo.png">
 						<input type="text" class="form-control input-lg" placeholder="User name" name="name">
 						<input type="password" class="form-control input-lg" placeholder="Password" name="password">
 						<button type="submit" class="btn btn-primary" name="submit">Login</button>
-						<p>Have't Any Account <a href="applicant_registration.php">Create An Account</a></p>
+						<p>Have't Any Account <a href="user_registration.php">Create An Account</a></p>
 					</form>
 				</div>
 			</div>

@@ -26,10 +26,15 @@
                 <li><a href="browse-job.php">Jobs</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
                 <li><a href="about.php">About Us</a></li>
-                <li><a href="postAjob.php">POST A JOB</a></li>
+                <?php
+                if(empty($_SESSION['email']) && empty($_SESSION['name'])) {
+                  echo "<li><a href=\"companyLogin.php\">Login</a></li>";
+                }
+                ?>
                 <li><?php
             if(isset($_SESSION['email'])){
-              echo "<li class=\"dropdown\">
+              echo "<li><a href=\"createPortfolio.php\">Create Your Portfolio</a></li>
+                    <li class=\"dropdown\">
                      <a href=\"#\" class=\"dropdown-toggle text-uppercase\" data-toggle=\"dropdown\" style=\"color: #5293fa;\">" .$_SESSION['email']."</a>
                       <ul class=\"dropdown-menu animated fadeOutUp\" style=\"display: none; opacity: 1;\">
                         <li><a href=\"/company/index.php\">dashbourd</a></li>
@@ -37,12 +42,13 @@
                       </ul>";
             }
             else if(isset($_SESSION['name'])){
-              echo "<li class=\"dropdown\">
+              echo "<li><a href=\"createPortfolio.php\">Create Your Portfolio</a></li>
+                    <li class=\"dropdown\">
                      <a href=\"#\" class=\"dropdown-toggle text-uppercase\" data-toggle=\"dropdown\" style=\"color: #5293fa;\">" .$_SESSION['name']."</a>
                       <ul class=\"dropdown-menu animated fadeOutUp\" style=\"display: none; opacity: 1;\">
                         <li class=\"active\"><a href=\"profile.php\">Profile</a></li>
-                        <li><a href=\"applicant_applications.php\">Applications</a></li>
-                        <li><a href=\"applicantLogout.php?logout\">Logout</a></li>
+                        <li><a href=\"user_portfolio.php\">My Portfolio</a></li>
+                        <li><a href=\"userLogout.php?logout\">Logout</a></li>
                       </ul>";
               }
             else

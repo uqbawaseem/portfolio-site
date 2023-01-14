@@ -46,20 +46,12 @@ if (!isset($_SESSION)) { session_start(); }?>
 <body>
 <?php         
     if(isset($_POST['update'])) {
-        $applicant_id = $_POST['applicant_id'];
+        $user_id = $_POST['user_id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $gender = $_POST['gender'];
-        $contact = $_POST['contact'];
         
-            $image=$_FILES['image']['name'];
-            $file_tempName=$_FILES['image']['tmp_name'];
-            $file_destination='../img/'.$image;
-            move_uploaded_file($file_tempName,$file_destination);
-        $qualification = $_POST['qualification'];
-        
-            $sql = " UPDATE applicant SET name='$name',email='$email',password='$password', gender='$gender',contact='$contact',image='$image',qualification='$qualification'  WHERE applicant_id = $applicant_id";
+            $sql = " UPDATE user SET name='$name',email='$email',password='$password' WHERE user_id = $user_id";
             header('location:profile.php'); 
             $result=mysqli_query($connection, $sql) or die ("error");
             
@@ -79,7 +71,7 @@ if (!isset($_SESSION)) { session_start(); }?>
          $id=isset($_GET['id']) ? $_GET['id'] : die("");
            
     
-         $sql="SELECT * FROM applicant WHERE applicant_id = $id";
+         $sql="SELECT * FROM user WHERE user_id = $id";
          $result1=mysqli_query($connection, $sql) or die ("errrrrrrr"); 
         while($p=mysqli_fetch_array($result1)){
   
@@ -101,29 +93,7 @@ if (!isset($_SESSION)) { session_start(); }?>
                 <label for="exampleInputPassword1">Password</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $p['password']; ?>" name="password">
             </div>
-            <div class="form-group">
-                <label for="gender">Gender</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $p['gender']; ?>" name="gender">
-                
-            </div>
-
-            <div class="form-group">
-                <label for="contact">Contact</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $p['contact']; ?>" name="contact">
-            </div>
-            <div class="form-group">
-                  <label for="contact">Image</label>
-                  <input type="file" class="form-control" id="image" value="<?php echo $image?>" name="image">
-                  <img class="form-control" id="image" style="height:200px; width:200px;" src="../img/<?php echo $p['image']?>" name="image">
-               </div>
-
-            <div class="form-group">
-                <label for="qualification">Qualification</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $p['qualification']; ?>" name="qualification">
-                
-            </div>
-
-            <input type="hidden" name = "applicant_id" value="<?php echo $p['applicant_id']; ?>">
+            <input type="hidden" name = "user_id" value="<?php echo $p['user_id']; ?>">
             <button type="submit" class="btn btn-primary" name="update" onclick="history.back();">Update</button>
         </form>
 </div>

@@ -1,5 +1,5 @@
 <?php 
-if (!isset($_SESSION)) { session_start(); }?>
+if (!isset($_SESSION['name'])) { session_start(); }?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +53,7 @@ if (!isset($_SESSION)) { session_start(); }?>
    <h3 style="text-align:center;">User profile</h3>
    <?php
 include('config.php');
-$query="SELECT * FROM applicant";
+$query="SELECT * FROM user";
 $result=mysqli_query($connection,$query) or die(mysqli_error($connection));
 while($j=mysqli_fetch_array($result)){
 ?>    
@@ -63,30 +63,18 @@ while($j=mysqli_fetch_array($result)){
                   <td>ID</td>
                   <td>Name</td>
                   <td>Email</td>
-                  <td>Password</td>
-                  <td>Gender</td>
-                  <td>Contact</td>
-                  <td>Image</td>
-                  <td>Qualification</td>
                   <td>Action</td>
                </tr>
             </thead>
             <?php
             $name = $_SESSION['name'];
 
-               $result = mysqli_query($connection, "SELECT * FROM applicant WHERE `name`='$name'");
+               $result = mysqli_query($connection, "SELECT * FROM user WHERE `name`='$name' LIMIT 1");
                   while($p = mysqli_fetch_array($result)){
-                      echo "<tr><td>".$p['applicant_id']."</td>";
-                      echo "<td>".$p['name']."</td>";
-                      echo "<td>".$p['email']."</td>";
-                      echo "<td>".$p['password']."</td>";
-                      echo "<td>".$p['gender']."</td>";
-                      echo "<td>".$p['contact']."</td>";
-                     
-                      // echo "<td>".$p['image']."</td>";
-                      echo "<td><img style=\" width:100px; height:80px;\" src=../img/".$p['image']."></td>";
-                      echo "<td>".$p['qualification']."</td>";
-                      echo "<td><a href=\"profile_edit.php?id=$p[applicant_id]\" class= \"btn btn-secondary\"><i class=\"fa fa-edit\"></i></a> <br><br> <a href=\"profile_delete.php?id=$p[applicant_id]\"  class= \"btn btn-danger\" onClick=\"return confirm('Are you sure you want to delete?')\"><i class=\"fa fa-trash\" style=\"color:red;\"></i></a></td>";		         
+                     echo "<tr><td>".$p['user_id']."</td>";
+                     echo "<td>".$p['name']."</td>";
+                     echo "<td>".$p['email']."</td>";
+                     echo "<td><a href=\"profile_edit.php?id=$p[user_id]\" class= \"btn btn-secondary\"><i class=\"fa fa-edit\"></i></a> <br><br> <a href=\"profile_delete.php?id=$p[user_id]\"  class= \"btn btn-danger\" onClick=\"return confirm('Are you sure you want to delete?')\"><i class=\"fa fa-trash\" style=\"color:red;\"></i></a></td>";		         
                   }
                   ?>
             </td>

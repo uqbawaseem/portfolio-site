@@ -1,10 +1,131 @@
 <?php 
-   // session_start();
+   session_start();
    include('config.php');?> 
 <!doctype html>
 <html class="no-js" lang="en">
-   <?php include('_head.php');?>
-   <body>
+  <?php include('_head.php');?>
+  <body>
+    <style>
+        :root {
+          --surface-color: #fff;
+          --curve: 40;
+          }
+
+          * {
+          box-sizing: border-box;
+          }
+
+          body {
+          font-family: 'Noto Sans JP', sans-serif;
+          overflow: hidden;
+          }
+
+          .cards {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+          margin: 4rem 5vw;
+          padding: 0;
+          list-style-type: none;
+          }
+
+          .card {
+          position: relative;
+          display: block;
+          height: 100%;  
+          border-radius: calc(var(--curve) * 1px);
+          overflow: hidden;
+          text-decoration: none;
+          }
+
+          .card__image {      
+          width: 100%;
+          height: auto;
+          }
+
+          .card__overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;      
+          border-radius: calc(var(--curve) * 1px);    
+          background-color: var(--surface-color);      
+          transform: translateY(100%);
+          transition: .2s ease-in-out;
+          }
+
+          .card:hover .card__overlay {
+          transform: translateY(0);
+          }
+
+          .card__header {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 2em;
+          padding: 2em;
+          border-radius: calc(var(--curve) * 1px) 0 0 0;    
+          background-color: var(--surface-color);
+          transform: translateY(-100%);
+          transition: .2s ease-in-out;
+          }
+
+          .card__arc {
+          width: 80px;
+          height: 80px;
+          position: absolute;
+          bottom: 100%;
+          right: 0;      
+          z-index: 1;
+          }
+
+          .card__arc path {
+          fill: var(--surface-color);
+          d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+          }       
+
+          .card:hover .card__header {
+          transform: translateY(0);
+          }
+
+          .card__thumb {
+          flex-shrink: 0;
+          width: 50px;
+          height: 50px;      
+          border-radius: 50%;      
+          }
+
+          .card__title {
+          font-size: 1em;
+          margin: 0 0 .3em;
+          color: #6A515E;
+          }
+
+          .card__tagline {
+          display: block;
+          margin: 1em 0;
+          font-family: "MockFlowFont";  
+          font-size: .8em; 
+          color: #C70039;  
+          }
+
+          .card__status {
+          font-size: 1em;
+          color: #C70039;
+          }
+
+          .card__description {
+          padding: 0 2em 2em;
+          margin: 0;
+          color: #C70039;
+          font-family: "MockFlowFont";   
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+          }    
+    </style>
       <!-- Navigation Start  -->
       <?php include('_navbar.php');?>
       <!-- Navigation End  -->
@@ -12,7 +133,7 @@
       <section class="main-banner" style="background:#242c36 url(img/slider-01.jpg) no-repeat">
          <div class="container">
             <div class="caption">
-               <h2>Build Your Career</h2>
+              <h2>Build Your Career</h2>
             </div>
          </div>
       </section>
@@ -65,90 +186,39 @@
             </div>
          </div>
       </section>
-      <section class="jobs">
-         <div class="container">
-         <div class="row heading">
-            <h2>Find Popular Portfolio</h2>
-            <p>Your introduction should be a brief summary of your work, not a detailed explanation of everything you've accomplish</p>
-         </div>
-         <?php
-            $query = "SELECT job.job_id, job.title, job.description, job.job_type, job.salary, job.location, job.vacancy, job.category_id ,job.company_id ,job.issue_date,job.last_date ,company.name ,company.image FROM `job`,`company` WHERE job.company_id = company.id and salary>=150000;";
-            $result = mysqli_query($connection,$query);
-            while($res = mysqli_fetch_array($result)) {  
-            $job_id=$res['job_id'];
-            
-            ?>
-         <div class="companies">
-            <div class="company-list">
-               <div class="row">
-                  <div class="col-md-2 col-sm-2">
-                     <div class="company-logo">
-                        <img src="img/<?php echo $res['image'];?>" class="img-responsive" alt="" />
-                     </div>
-                  </div>
-                  <div class="col-md-10 col-sm-10">
-                     <div class="company-content">
-                        <h3><?php echo $res['title'];?><span class="full-time"><?php echo $res['job_type'];?></span></h3>
-                        <p>
-                           <span class="company-name">
-                           <i class="fa fa-briefcase">
-                           </i><?php echo $res['name'];?></span>
-                           <span class="company-location">
-                           <i class="fa fa-map-marker">
-                           </i><?php echo $res['location'];?></span>
-                           <span class="package">
-                           <i class="fa fa-money">
-                           </i><?php echo $res['salary'];?>RS</span>
-                        </p>
-                        <p style="text-align:center">
-                           <span class="package">
-                           <i class="fa fa-date">
-                           </i>ISSUE DATE: <?php echo $res['issue_date'];?></span>
-                           <span class="package">
-                           <i class="fa fa-date">
-                           </i>LAST DATE: <?php echo $res['last_date'];?></span>
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <?php }?>	
-         </div>
-      </section>
       <section class="membercard dark">
          <div class="container">
-            <div class="row">
+
+            <ul class="cards">
                <?php
-                  $query = "SELECT * FROM `applicant` ORDER BY applicant_id DESC LIMIT 3";
-                  $result = mysqli_query($connection,$query);
-                  while($res = mysqli_fetch_array($result)) {  
-                  $applicant_id=$res['applicant_id'];
-                  
-                  ?>
-               <div class="col-md-4 col-sm-4">
-                  <div class="left-widget-sidebar">
-                     <div class="card-widget bg-white user-card">
-                        <div class="u-img img-cover" style="background-image: url(img/bg-1.jpg);background-size:cover;"></div>
-                        <div class="u-content">
-                           <div class="avatar box-80">
-                              <img class="img-responsive img-circle img-70 shadow-white" src="img/<?php echo $res['image'];?>" alt="">
-                              <i class="fa fa-circle-o fa-green"></i>
-                           </div>
-                           <h5 style="margin-top: 70px;"><?php echo $res['name'];?></h5>
-                           <!-- <p class="text-muted">UX/ Designer</p> -->
-                        </div>
-                        <div class="user-social-profile">
-                           <ul>
-                              <li><a href="www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                              <li><a href="<?php echo $res['email'];?>"><i class="fa fa-google-plus"></i></a></li>
-                           </ul>
+               $query = "SELECT * FROM `portfolio` LIMIT 10";
+               $result = mysqli_query($connection,$query);
+               while($res = mysqli_fetch_array($result)) {  
+      
+               ?>
+               <li>
+                  <a href="view_portfolio.php?<?php echo $res['id']?>" class="card">
+                     <img src="img/<?php echo $res['image'];?>" class="card__image" alt="" />
+                     <div class="card__overlay">
+                     <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                        <img class="card__thumb" src="img/<?php echo $res['image'];?>" alt="" />
+                        <div class="card__header-text">
+                           <h2 class="card__title"><?php echo $res['name'];?></h2>            
+                           <span class="card__status"><?php echo $res['designation'];?></span>
                         </div>
                      </div>
-                  </div>
-               </div>
-               <!-- end php -->
-               <?php }?>
-            </div>
+                     <p class="card__description"><?php echo $res['experience_data'];?></p>
+                     <?php 
+                        if(isset($_SESSION['email'])){
+                           echo "<p class=\"card__description\"><a \"add_to_company.php?port_id=$res[id]\"> Add Employee</a></p>";
+                        }
+                     ?>
+                     </div>
+                  </a>      
+               </li>
+               <?php }?>   
+            </ul>
          </div>
       </section>
       <!-- footer start -->
@@ -158,5 +228,5 @@
       <script type="text/javascript" src="js/owl.carousel.min.js"></script>
       <script src="js/bootsnav.js"></script>
       <script src="js/main.js"></script>
-   </body>
+  </body>
 </html>

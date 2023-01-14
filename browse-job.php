@@ -1,11 +1,11 @@
 <?php
    session_start();
    include('config.php');
-   if (!isset($_SESSION['name'])){
-      echo "<script>window.alert(\"Please Login First\");</script>";
-      header("location:applicantLogin.php");
+   // if (!isset($_SESSION['name'])){
+   //    echo "<script>window.alert(\"Please Login First\");</script>";
+   //    header("location:userLogin.php");
 
-     }
+   //   }
    ?>
 <!doctype html>
 <html class="no-js" lang="en">
