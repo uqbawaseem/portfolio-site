@@ -124,7 +124,7 @@ include('config.php');
           </div>
         </div>
       </section>
-      You have selected option <strong>"One"</strong>.
+      <!-- You have selected option <strong>"One"</strong>. -->
     </div>
     <div id="showcompanyLogin" class="myDiv">
       <section class="login-wrapper">
@@ -146,7 +146,7 @@ include('config.php');
 		<!-- login section End -->	
 		
 		<!-- footer start -->
-		<?php include("_footer.php")?>
+		<!-- <?php include("_footer.php")?> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>      
 

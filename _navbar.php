@@ -6,7 +6,7 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
             <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href="index.php"><img src="img/logo.png" class="logo" alt=""></a>
+        <h3 class="navbar-brand logo">Portfolio Site</h3>
     </div>
     <!-- End Header Navigation -->
 
@@ -23,8 +23,8 @@
                         <li><a href="resume.php">Resume Detail</a></li>
                     </ul>
                 </li> -->
-                <li><a href="browse-job.php">Jobs</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
+                <!-- <li><a href="browse-job.php">Jobs</a></li> -->
+                <!-- <li><a href="contact.php">Contact Us</a></li> -->
                 <li><a href="about.php">About Us</a></li>
                 <?php
                 if(empty($_SESSION['email']) && empty($_SESSION['name'])) {

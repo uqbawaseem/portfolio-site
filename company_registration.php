@@ -59,7 +59,7 @@
          <div class="container">
             <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
                <form action="company_registration.php" method="post" enctype= "multipart/form-data">
-                  <img class="img-responsive" alt="logo" src="img/logo.png">
+                  <h3 class="img-responsive">Portfolio Site</h3>
                   <input type="hidden" name="company_id" class="form-control input-lg" placeholder="">
                   <input type="text" name="name" class="form-control input-lg" placeholder=" name">
                   <input type="email"name="email" class="form-control input-lg" placeholder="email">

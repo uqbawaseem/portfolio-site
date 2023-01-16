@@ -49,7 +49,8 @@ include('config.php');
 			<div class="container">
 				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
 					<form>
-						<img class="img-responsive" alt="logo" src="img/logo.png">
+            <h3 class="img-responsive">Portfolio Site</h3>
+
 						<input type="text" class="form-control input-lg" placeholder="User Name">
 						<input type="password" class="form-control input-lg" placeholder="Password">
 						<label><a href="">Forget Password?</a></label>

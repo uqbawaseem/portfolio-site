@@ -47,7 +47,7 @@
          <div class="container">
             <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
                <form action="adminLogin.php" method="post" enctype="multipart/form-data">
-                  <img class="img-responsive" alt="logo" src="img/logo.png">
+                  <h3 class="img-responsive">Portfolio Site</h3>
                   <input type="text" class="form-control input-lg" placeholder="User Name" name="name">
                   <input type="password" class="form-control input-lg" placeholder="Password" name="password">
                   <label>

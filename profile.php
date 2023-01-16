@@ -45,7 +45,7 @@ if (!isset($_SESSION['name'])) { session_start(); }?>
 <body>
 
  <nav class="navbar navbar-light bg-light justify-content-between">
-   <a class="navbar-brand"><img src="img/logo.png" alt="" width= "170px"/></a>
+   <h3 class="navbar-brand">Portfolio Site</h3>
     <a href="#" class=" text-uppercase mr-4" data-toggle="dropdown\" style="color: #5293fa;"><?php echo $_SESSION['name']?></a>     
  </nav>
 

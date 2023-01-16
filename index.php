@@ -197,7 +197,7 @@
       
                ?>
                <li>
-                  <a href="view_portfolio.php?<?php echo $res['id']?>" class="card">
+                  <a href="view_portfolio.php?id=<?php echo $res['id']?>" class="card">
                      <img src="img/<?php echo $res['image'];?>" class="card__image" alt="" />
                      <div class="card__overlay">
                      <div class="card__header">
